@@ -5,10 +5,12 @@ Setup requires some time so follow [the steps of bridge[configuration}(#bridge-c
 
 ## Supported Things
 
-- Bridge `account`: Data to connect your Mercedes Me account
-- Thing `combustion`: Conventional fuel vehicle
-- Thing `hybrid`: Fuel vehicle with supporting electric engine
-- Thing `bev`: Battery electric vehicle
+| Type            | ID            | Description                                     | 
+|-----------------|---------------|-------------------------------------------------|
+| Bridge          | `account`     | Connect your Mercedes Me account                |
+| Thing           | `combustion`  | Conventional fuel vehicle                       |
+| Thing           | `hybrid`      | Fuel vehicle with supporting electric engine    |
+| Thing           | `bev`         | Battery electric vehicle                        |
 
 ## Discovery
 
@@ -72,20 +74,21 @@ Some supporting screenshots for the setup
 
 
 
-| Name            | Type    | Description                           | Default    | Required | Advanced |
-|-----------------|---------|---------------------------------------|------------|----------|----------|
-| clientId        | text    | Mercedes Benz Developer Client ID     | N/A        | yes      | no       |
-| clientSecret    | text    | Mercedes Benz Developer Client Secret | N/A        | yes      | no       |
-| imageApiKey     | text    | Mercedes Benz Developer Image API Key | N/A        | no       | no       |
-| odoScope        | boolean | PayAsYourDrive Insurance              | true       | yes      | no       |
-| vehicleScope    | boolean | Vehicle Status                        | true       | yes      | no       |
-| lockScope       | boolean | Lock status of doors and trunk        | true       | yes      | no       |
-| fuelScope       | boolean | Fuel Status                           | true       | yes      | no       |
-| evScope         | boolean | Electric Vehicle Status               | true       | yes      | no       |
+| Name            | Type    | Description                           | Default     | Required | Advanced |
+|-----------------|---------|---------------------------------------|-------------|----------|----------|
+| clientId        | text    | Mercedes Benz Developer Client ID     | N/A         | yes      | no       |
+| clientSecret    | text    | Mercedes Benz Developer Client Secret | N/A         | yes      | no       |
+| imageApiKey     | text    | Mercedes Benz Developer Image API Key | N/A         | no       | no       |
+| odoScope        | boolean | PayAsYourDrive Insurance              | true        | yes      | no       |
+| vehicleScope    | boolean | Vehicle Status                        | true        | yes      | no       |
+| lockScope       | boolean | Lock status of doors and trunk        | true        | yes      | no       |
+| fuelScope       | boolean | Fuel Status                           | true        | yes      | no       |
+| evScope         | boolean | Electric Vehicle Status               | true        | yes      | no       |
 | callbackIp      | text    | IP address of your openHAB server     | auto detect | no       | yes      |
 | callbackPort    | integer | **Unique** port number                | auto detect | no       | yes      |
 
-The `callbackPort` needs to be unique for all created Mercedes Me account things. Otherwise token exchange will be corrupted!
+The `callbackPort` needs to be unique for all created Mercedes Me account things. Otherwise token exchange will be corrupted.
+Set the advanced options by yoursself if you know your IP and Port, otherwise give auto detect a try.
 
 
 ### Thing Configuration
