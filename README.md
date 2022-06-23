@@ -1,7 +1,9 @@
 # MercedesMe Binding
 
 Connects your Mercedes Me Account and attached vehicles to openHAB.
-Setup requires some time so follow [the steps of bridge[configuration}(#bridge-configuration)
+Setup requires some time so follow [the steps of bridge configuration](#bridge-configuration)
+
+If you face some problems during setup or runtime please have a look into the [Troubleshooting section](#troubleshooting)
 
 ## Supported Things
 
@@ -98,6 +100,7 @@ Configuration for all vehicles are the same.
 For vehicle images Mercedes Benz Developer offers only a trial version with limited calls.
 Check in **beforehand** if your vehicle has some restrictions or even if it's supported at all.
 Visit [Vehicle Image Details](https://developer.mercedes-benz.com/products/vehicle_images/details) in order to check your vehicle capabilities.
+Visit [Image Settings](https://developer.mercedes-benz.com/products/vehicle_images/docs#_default_image_settings) to get more information about 
 For example the EQA doesn't provide `night` images with `background`.
 If your configuration is set this way the API calls are wasted!
 
@@ -310,6 +313,21 @@ It seems that the API isn't _filled_ yet.
 - Go to your vehcile, open doors and windows, turn on lights, drive a bit  ... 
 - wait until values are providing the right states
 
+### Images
+
+Testing the whole image settings is hard due to the restricted call number towards the Image API
+My personal experience during limited testing
+
+| Test             |Tested | Ok  |  Not Ok | Comment                                                 |
+|------------------|-------|-----|---------|---------------------------------------------------------|
+| `format` webp    | Yes   |  X  |         |                                                         |
+| `format` png     | Yes   |     |    X    | Internal Server Error 500 on Mercedes Server side       |
+| `format` jpeg    | No    |     |         | Not tested due to missing transparency in jpeg format   |
+| all options off  | Yes   |  X  |         |                                                         |
+| ´background`     | Yes   |  X  |         |                                                         |
+| `night`          | No    |     |         | Not support by my vehicle                               |
+| `roofOpen`       | No    |     |         | Not support by my vehicle                               |
+| `cropped         | No    |     |         | Not desired from my side                                |
 
 ## Mercedes Benz Developer
 
