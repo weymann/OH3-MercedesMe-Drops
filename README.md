@@ -393,6 +393,7 @@ Switch                  EQA_InteriorRear            "Interior Rear Light [%s]"  
 Switch                  EQA_ReadingLeft             "Reading Light Left [%s]"                     {channel="mercedesme:bev:4711:eqa:lights#reading-left" }  
 Switch                  EQA_ReadingRight            "Reading Light Right [%s]"                    {channel="mercedesme:bev:4711:eqa:lights#reading-right" }  
 Number                  EQA_LightSwitch             "Main Light Switch [%s]"                      {channel="mercedesme:bev:4711:eqa:lights#light-switch" }  
+```
 
 ### Sitemap
 
