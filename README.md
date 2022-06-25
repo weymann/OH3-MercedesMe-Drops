@@ -42,7 +42,7 @@ Perform the following steps to obtain the configuration data and perform the aut
     - Fuel Status
 6. Optional: Subscribe also to _Vehicle images_. Select the _Basic Trial_ version. The images will be stored so the API is used just a few times.
 7. Press _Subscribe_ button. Your project should have [these product subscriptions](#mb-product-subscriptions)
-8. Generate the [project credentials]((#mb-credentials))
+8. Generate the [project credentials](#mb-credentials)
 9. Open in new browser tab your openHAB page. Add a new Thing _Mercedes Me Account_
 10. Copy paste _Client ID_ , _Client Secret_ and _API Key_ from the Mercedes tab into the openHAB configuration
 11. Check if the registered Mercedes products _excluding Vehicle Images_ are matching exactly with the openHab configuration switches
@@ -50,7 +50,7 @@ Perform the following steps to obtain the configuration data and perform the aut
 13. The fresh created [account has one property](#openhab-configuration) `callbackUrl`. Copy it and paste it in a new browser tab
 14. A [simple HTML page is shown including a link towards the Authorization flow](#callback-page) - **don't click yet**. If page isn't shown please adapt IP and port in openHAB configuration with Advanced Options activated
 15. The copied URL needs to be added in your [Mercedes project credentials](#mb-credentials) from 8
-16. Now click onto the link from 14. You'll be asked one time if you [grant access](mb-access-request) towards the API. Click OK and authorization is done!
+16. Now click onto the link from 14. You'll be asked one time if you [grant access](#mb-access-request) towards the API. Click OK and authorization is done!
 
 Some supporting screenshots for the setup
 
@@ -301,7 +301,7 @@ Most common errors:
 
 ### Receive no data
 
-Especially after setting up a new Mercedes Benz Developer Project you'll receive no data.
+Especially after setting the frist Mercedes Benz Developer Project you'll receive no data.
 It seems that the API isn't _filled_ yet. 
 
 **Pre-Condition**
@@ -315,7 +315,8 @@ It seems that the API isn't _filled_ yet.
 
 ### Images
 
-Testing the whole image settings is hard due to the restricted call number towards the Image API
+Testing the whole image settings is hard due to the restricted call number towards the Image API.
+
 My personal experience during limited testing
 
 | Test             |Tested | Ok  |  Not Ok | Comment                                                 |
