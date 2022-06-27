@@ -72,7 +72,7 @@ Some supporting screenshots for the setup
 
 ### Callback page
 
-<img src="./doc/CallbackUrl_Page.png" width="420" height="140"/>
+<img src="./doc/CallbackUrl_Page.png" width="500" height="350"/>
 
 
 
