@@ -1,6 +1,7 @@
 # MercedesMe Binding
 
-Connects your Mercedes Me Account and attached vehicles to openHAB.
+This binding provides similar access to your Mercedes Benz vehicle like the Smartphone App _Mercedes Me_.
+For this you need a Mercedes developer account to get data from your vehicles.
 Setup requires some time so follow [the steps of bridge configuration](#bridge-configuration)
 
 If you face some problems during setup or runtime please have a look into the [Troubleshooting section](#troubleshooting)
@@ -21,6 +22,16 @@ There's no automatic discovery.
 ## Bridge Configuration
 
 Bridge needs configuration in order to connect properly to your Mercedes Me Account. 
+
+### Pre Conditions
+
+- **each bridge shall have it's own Mercedes Benz Client ID!**
+ Don't create several `account` bridges with the same client id! If this is not the case the tokens won't be stored properly and the authorization is jeopardized!
+- **each bridge shall have it's own port.**
+ It's absolutely necessary to assign a different port for each `account` bridge. If this is not the case the tokens won't be stored properly and the authorization is jeopardized!
+
+### Bridge Setup
+
 Perform the following steps to obtain the configuration data and perform the authorization flow.
 
 1. Go to [Mercedes Developer Page](https://developer.mercedes-benz.com/). Login with your Mercedes Me credentials.
@@ -74,7 +85,7 @@ Some supporting screenshots for the setup
 
 <img src="./doc/CallbackUrl_Page.png" width="500" height="350"/>
 
-
+### Bridge Configuration
 
 | Name            | Type    | Description                           | Default     | Required | Advanced |
 |-----------------|---------|---------------------------------------|-------------|----------|----------|
@@ -93,7 +104,7 @@ The `callbackPort` needs to be unique for all created Mercedes Me account things
 Set the advanced options by yoursself if you know your IP and Port, otherwise give auto detect a try.
 
 
-### Thing Configuration
+## Thing Configuration
 
 Configuration for all vehicles are the same.
 
@@ -335,6 +346,17 @@ My personal experience during limited testing
 | `night`          | No    |     |         | Not support by my vehicle                               |
 | `roofOpen`       | No    |     |         | Not support by my vehicle                               |
 | `cropped         | No    |     |         | Not desired from my side                                |
+
+## Storage
+
+Data is stored in directory `%USER_DATA%/jsondb` for handling tokens and vehicle images.
+
+ * _mercedesme.json_ - token is stored with key `clientId` which is provided by `account` [bridge](#bridge-configuration)
+ * _mercedesme_%VEHICLE_VIN%.json_ - images are stored per vehicle. File name contains `vin` cofigured by [vehicle thing](#thing-configuration)
+
+With this data the binding is able to operate without new authorization towards Mercedes each startup and reduces the restricted calls towards image API.
+Also these files are properly stored in your [backup](https://community.openhab.org/t/docs-on-how-to-backup-openhab/100182) e.g. if you perform `openhab-cli backup`
+
 
 ## Full example
 
