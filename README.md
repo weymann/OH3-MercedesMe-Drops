@@ -2,7 +2,7 @@
 
 This binding provides similar access to your Mercedes Benz vehicle like the Smartphone App _Mercedes Me_.
 For this you need a Mercedes developer account to get data from your vehicles.
-Setup requires some time so follow [the steps of bridge configuration](#bridge-configuration)
+Setup requires some, time so follow [the steps of bridge configuration](#bridge-configuration).
 
 If you face some problems during setup or runtime please have a look into the [Troubleshooting section](#troubleshooting)
 
@@ -15,19 +15,15 @@ If you face some problems during setup or runtime please have a look into the [T
 | Thing           | `hybrid`      | Fuel vehicle with supporting electric engine    |
 | Thing           | `bev`         | Battery electric vehicle                        |
 
-## Discovery
-
-There's no automatic discovery. 
-
 ## Bridge Configuration
 
 Bridge needs configuration in order to connect properly to your Mercedes Me Account. 
 
 ### Pre-Conditions
 
-- **each bridge shall have it's own Mercedes Benz Client ID!**
+- **each bridge shall have its own Mercedes Benz Client ID!**
  Don't create several `account` bridges with the same client id! If this is not the case the tokens won't be stored properly and the authorization is jeopardized!
-- **each bridge shall have it's own port.**
+- **each bridge shall have its own port.**
  It's absolutely necessary to assign a different port for each `account` bridge. If this is not the case the tokens won't be stored properly and the authorization is jeopardized!
 
 ### Bridge Setup
@@ -117,8 +113,6 @@ If your configuration is set this way the API calls are wasted!
 
 See also [image channel section](#image) for further advise.
 
-
-
 | Name            | Type    | Description                                         | Default | Required | Advanced |
 |-----------------|---------|-----------------------------------------------------|---------|----------|----------|
 | vin             | text    | Vehicle identification number                       | N/A     | yes      | no       |
@@ -175,7 +169,6 @@ All channels `read-only`
 | last-update      | DateTime             |  Last range update           | X   | X      | X          |
 
 Channels with `radius` are just giving a _guess_ which radius can be reached in a map display.
-
 
 ### Doors
 
@@ -378,7 +371,7 @@ My personal experience during limited testing
 
 Data is stored in directory `%USER_DATA%/jsondb` for handling tokens and vehicle images.
 
- * _mercedesme.json_ - token is stored with key `clientId` which is provided by `account` [Brige Configuration Parameters](#bridge-configuration-parameters)
+ * _StorageHandler.For.OAuthClientService.json_ - token is stored with key `clientId` which is provided by `account` [Brige Configuration Parameters](#bridge-configuration-parameters)
  * _mercedesme_%VEHICLE_VIN%.json_ - images are stored per vehicle. File name contains `vin` configured by [vehicle Thing Configuration](#thing-configuration)
 
 With this data the binding is able to operate without new authorization towards Mercedes each startup and reduces the restricted calls towards image API.
