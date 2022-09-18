@@ -33,7 +33,7 @@ Perform the following steps to obtain the configuration data and perform the aut
 1. Go to [Mercedes Developer Page](https://developer.mercedes-benz.com/). Login with your Mercedes Me credentials.
 2. Create a project in the [console tab](https://developer.mercedes-benz.com/console)
     - _Project Name:_  unique name e.g. **openHAB Mercedes Me binding** plus **Your bridge ID**
-    - _Purpose URL:_  use link towards [this binding description](https://github.com/weymann/OH3-MercedesMe-Drops)
+    - _Purpose URL:_  use link towards [this binding description](https://www.openhab.org/addons/bindings/mercedesme/)
     - _Business Purpose:_  e.g. **Private usage in openHAB Smarthome system**
 3. After project is created subscribe [to these Mercedes Benz APIs](https://developer.mercedes-benz.com/products?vt=cars&vt=vans&vt=smart&p=BYOCAR) with _Add Products_ button 
 4. For all Products perform the same steps
@@ -81,6 +81,7 @@ Some supporting screenshots for the setup
 
 <img src="./doc/CallbackUrl_Page.png" width="500" height="350"/>
 
+
 ### Bridge Configuration Parameters
 
 | Name            | Type    | Description                           | Default     | Required | Advanced |
@@ -93,7 +94,7 @@ Some supporting screenshots for the setup
 | lockScope       | boolean | Lock status of doors and trunk        | true        | yes      | no       |
 | fuelScope       | boolean | Fuel Status                           | true        | yes      | no       |
 | evScope         | boolean | Electric Vehicle Status               | true        | yes      | no       |
-| callbackIp      | text    | IP address of your openHAB server     | auto detect | no       | yes      |
+| callbackIP      | text    | IP address of your openHAB server     | auto detect | no       | yes      |
 | callbackPort    | integer | **Unique** port number                | auto detect | no       | yes      |
 
 The `callbackPort` needs to be unique for all created Mercedes Me account things. Otherwise token exchange will be corrupted.
@@ -133,7 +134,7 @@ Giving these values in configuration the open fuel / charge capacities are repor
 
 ## Channels
 
-Channels are separated in groups
+Channels are separated in groups:
 
 | Channel Group ID                 | Description                                       |
 |----------------------------------|---------------------------------------------------|
@@ -400,7 +401,7 @@ Thing
 ### Things file
 
 ```
-Bridge mercedesme:account:4711   "MercedesMe John Doe" [ clientId="YOUR_CLIENT_ID", clientSecret="YOUR_CLIENT_SECRET", imageApiKey="YOUR_API_KEY", callbackIp="YOUR_OPENHAB_SERVER_IP", callbackPort=8092, odoScope=true, vehicleScope=true, lockScope=true, fuelScope=true, evScope=true] {
+Bridge mercedesme:account:4711   "MercedesMe John Doe" [ clientId="YOUR_CLIENT_ID", clientSecret="YOUR_CLIENT_SECRET", imageApiKey="YOUR_API_KEY", callbackIP="YOUR_OPENHAB_SERVER_IP", callbackPort=8092, odoScope=true, vehicleScope=true, lockScope=true, fuelScope=true, evScope=true] {
          Thing bev eqa           "Mercedes EQA"        [ vin="VEHICLE_VIN", refreshInterval=5, background=false, night=false, cropped=false, roofOpen=false, format="webp"]
 }
 ```
